@@ -1,0 +1,72 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#content {
+    text-align: center;
+    z-index: 1; /* Ensure it's on top of falling cats */
+}
+
+
+#question {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+}
+
+#countdown {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#cat-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://e7.pngegg.com/pngimages/639/508/png-clipart-brown-cat-illustration-bengal-cat-british-shorthair-ragdoll-turkish-angora-kitten-cat-tongue-cat-like-mammal-carnivoran-thumbnail.png'); /* Image of a cat */
+    background-size: cover;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+    }
+    90% {
+        top: calc(100% - 60px); /* 90% of the fall, just before bouncing */
+    }
+    100% {
+        top: calc(100% - 50px); /* Bounce up a bit */
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Bounce up */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
